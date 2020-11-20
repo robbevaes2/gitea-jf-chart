@@ -18,6 +18,7 @@ spec:
         app: {{ template "fullname" . }}
       {{- with .Values.podAnnotations }}
       {{- with .Values.podLabels }}
+      {{- end }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
