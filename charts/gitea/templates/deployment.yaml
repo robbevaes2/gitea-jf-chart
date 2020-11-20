@@ -17,6 +17,9 @@ spec:
       labels:
         app: {{ template "fullname" . }}
       {{- with .Values.podAnnotations }}
+      {{- with .Values.gitea.podLabels }}
+      {{ toYaml . | nindent 8 }}
+      {{- end }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
